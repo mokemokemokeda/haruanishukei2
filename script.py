@@ -62,7 +62,7 @@ headers = {"Authorization": f"Bearer {twitter_bearer_token}"}
 url = "https://api.twitter.com/2/users/by/username/"
 
 # Google Drive から Twitter アカウントリスト取得
-file_id = get_file_id("haruani2.csv")
+file_id = get_file_id("akiani2.csv")
 if file_id:
     df = retry_request(lambda: pd.read_csv(f"https://drive.google.com/uc?id={file_id}"))
     print("Twitterアカウントリストを取得しました")
@@ -107,7 +107,7 @@ for i in range(0, len(df["username"]), 3):
 new_data = pd.DataFrame(followers_data_list)
 
 # 記録ファイルの取得と更新
-history_file = "haruani_follower.xlsx"  # ファイル名を変更
+history_file = "akiani_follower.xlsx"  # ファイル名を変更
 history_id = get_file_id(history_file)
 if history_id:
     file_metadata = drive_service.files().get(fileId=history_id).execute()
